@@ -1,0 +1,37 @@
+Hyperparameters for running synthetic experiments or reproducing paper results:
+
+- tdims (list): list of dimensions [l,p,n,m] where the
+	unknown tensor X has shape(l,p,n),
+	left-hand measurement tensor A has shape (m,l,n),
+	right-hand measurement tensor B has shape (m,p,n)
+
+- num_corrupt_array (array): The entries indicate different numbers of corrupted entries in the construction of synthetic data system. The array of beta values can be computed as num_corrupt_array/(m*p*n). 
+
+- k_array (array): The entries indicate different total number of row slices in B where the corrupted entries can be distributed. The array of beta-row values can be computed as is k_array/m.
+
+- q_array (array):  The entries (0<q<1) indicate different empirical quantile values chosen for QTRK or mQTRK in each experiment.
+
+- cor_size (array): The first entry indicates the mean of normal distribution and the second entry the standard deviation. This is the distribution from which the values of the corruptions are generated.
+
+- num_trials (integer>0): Number of trials of the experiments for robustness of results
+
+- num_its (integer>0): Number of iterations for the iterative algorithm (QTRK or mQTRK)
+
+
+In the paper:
+For QTRK experiments
+beta_array = [0.025,0.075,0.1]; 
+betarow_array = [0.2,0.4,0.8];
+q_array = [1, 1 - beta_array];
+
+
+For mQTRK experiments
+beta_array = [0.025,0.05,0.075];
+betarow_array = [0.2,0.4,0.8,1];
+q_array = [1, 1 - beta_array, 0.90];
+
+
+For Comparisons experiments
+beta_array = [0.025,0.075,0.1];
+betarow_array = [0.4,0.6];
+q_array = [1, 1 - beta_array];
