@@ -15,11 +15,11 @@ X = mat2gray(X(:,:,1:12));              % only first 12 frames
 num_its = 2000; % number of iterations
 num_corrupt = 15; % number of corruption
 q = 0.99; % quantile value
-k = 4; % number of corrupted rows
+k = 6; % number of corrupted rows
 
 % Corruptions magnitude distribution
 mean_corrupt = 3;
-deviation_corrupt = 4;
+deviation_corrupt = 2;
 
 % Gaussian Filter
 h = fspecial('gaussian',[5,5],2);
