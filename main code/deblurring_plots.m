@@ -138,7 +138,7 @@ for i = 1:4
     set(gca,'Xticklabel',[])
 end
 
-% Row 5: least-squares solution frame
+% Row 5: least-norm solution frame
 X_ln = tprod(tpinv(A),Y_reorder);
 X_ln = recover_img(X_ln,[l,p,n]);
 for i = 1:4
