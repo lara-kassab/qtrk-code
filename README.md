@@ -6,8 +6,8 @@ Alejandra Castillo, Jamie Haddock, Iryna Hartsock, Paulina Hoyos, Lara Kassab, A
 
 
 ## Algorithms Implementation:
-- QTRK_Algorithm.m is the implementations of QTRK in the paper
-- mQTRK_Algorithm.m are the implementations of mQTRK in the paper
+- QTRK_Algorithm.m is the implementation of QTRK in the paper
+- mQTRK_Algorithm.m is the implementation of mQTRK in the paper
 
 
 ## User experimentation and reproducing paper's results:
