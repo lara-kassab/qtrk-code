@@ -81,11 +81,11 @@ end
 %% Plot Frame Results 
 
 grid_fig = figure; 
-tiledlayout(5,4,'TileSpacing','none');
+tiledlayout(5,5,'TileSpacing','none');
 colormap gray
 
 % Row 1: original frames
-for i = 1:4 
+for i = 1:5 
     nexttile;
     imagesc(X(:,:,i),[0,1]);
     title(sprintf('Frame %d',i), 'FontSize',13)
@@ -100,7 +100,7 @@ end
 
 % Row 2: blurred + corrupted frames
 Y_corrupted = recover_img(Y_reorder, [l,p,n]);
-for i = 1:4 
+for i = 1:5 
     nexttile;
     imagesc(Y_corrupted(:,:,i));
     if i == 1
@@ -113,7 +113,7 @@ for i = 1:4
 end
 
 % Row 3: QTRK recovery frames
-for i = 1:4
+for i = 1:5
     nexttile;
     imagesc(Z_qtrk(:,:,i),[0,1]);
     if i == 1
@@ -126,7 +126,7 @@ for i = 1:4
 end
 
 % Row 4: mQTRK recovery frames
-for i = 1:4
+for i = 1:5
     nexttile;
     imagesc(Z_mqtrk(:,:,i),[0,1]);
     if i == 1
@@ -141,7 +141,7 @@ end
 % Row 5: least-norm solution frame
 X_ln = tprod(tpinv(A),Y_reorder);
 X_ln = recover_img(X_ln,[l,p,n]);
-for i = 1:4
+for i = 1:5
     nexttile;
     imagesc(X_ln(:,:,i),[0,1]);
     if i == 1
@@ -157,7 +157,7 @@ end
 figFileName = fullfile(folderName, ['mQTRK_QTRK_deblurring','_exp_', num2str(exp_id), '.fig']);
 savefig(grid_fig, figFileName);
 
-set(gcf, 'Position', [100, 100, 300, 500]);  % [left, bottom, width, height]
+set(gcf, 'Position', [100, 100, 350, 500]);  % [left, bottom, width, height]
 pngFileName = fullfile(folderName, ['mQTRK_QTRK_deblurring','_exp_', num2str(exp_id), '.png']);
 print(gcf, pngFileName, '-dpng', '-r300');  % Adjust resolution as needed
 
